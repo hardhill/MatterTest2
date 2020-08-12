@@ -20,7 +20,10 @@
     var box1;
     var world;
     var boxes = [];
-
+    var ground;
+    var options = {
+        isStatic:true
+    }
     function mousePressed(){
         boxes.push(new Box(mouseX,mouseY,20,20));
     }
@@ -29,7 +32,8 @@
         engine = Engine.create();
         world = engine.world;
         Engine.run(engine);
-        box1 = new Box(200,100,20,20);
+        ground = Bodies.rectangle(200,height,width,10,options)
+        World.add(world,ground)
     }
     function draw(){
         background(51)
